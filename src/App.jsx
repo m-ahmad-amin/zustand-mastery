@@ -6,9 +6,11 @@ import useStore from "./store/useStore";
 import { useShallow } from "zustand/shallow";
 
 const App = () => {
-  const { isLoggedIn, theme, toggleTheme } = useStore(
+  const { user, loading, isLoggedIn, theme, toggleTheme } = useStore(
     useShallow((state) => ({
       isLoggedIn: state.isLoggedIn,
+      loading: state.loading,
+      user: state.user,
       theme: state.theme,
       toggleTheme: state.toggleTheme,
     })),
@@ -17,7 +19,11 @@ const App = () => {
   return (
     <div>
       <AuthStatus />
-      {isLoggedIn ? <LogoutButton /> : <LoginButton />}
+      {isLoggedIn && <p>User: {user}</p>}
+      {loading && <p>Loading...</p>}
+      {/* {isLoggedIn ? <LogoutButton /> : <LoginButton />} */}
+      <LoginButton />
+      <LogoutButton />
       <p>Theme: {theme}</p>
       <button onClick={toggleTheme}>Toggle Theme</button>
       <Counter />
