@@ -23,6 +23,7 @@ const App = () => {
       {loading && <p>Loading...</p>}
       {/* {isLoggedIn ? <LogoutButton /> : <LoginButton />} */}
       <LoginButton />
+      &nbsp;
       <LogoutButton />
       <p>Theme: {theme}</p>
       <button onClick={toggleTheme}>Toggle Theme</button>
