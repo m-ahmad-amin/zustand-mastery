@@ -1,8 +1,9 @@
 import useStore from "../store/useStore";
+import AuthButton from "./AuthButton";
 
 const LogoutButton = () => {
   const logout = useStore((state) => state.logout);
-  return <button onClick={logout}>logout</button>;
+  return <AuthButton handleClick={logout} label="Logout" />
 };
 
 export default LogoutButton;

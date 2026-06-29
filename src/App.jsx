@@ -17,16 +17,18 @@ const App = () => {
   );
   console.log("App Component Rendered");
   return (
-    <div>
+    <div className="flex justify-center items-center flex-col h-screen gap-5 bg-orange-300">
       <AuthStatus />
       {isLoggedIn && <p>User: {user}</p>}
       {loading && <p>Loading...</p>}
       {/* {isLoggedIn ? <LogoutButton /> : <LoginButton />} */}
-      <LoginButton />
-      &nbsp;
-      <LogoutButton />
+      <div className="flex">
+        <LoginButton />
+        &nbsp;
+        <LogoutButton />
+      </div>
       <p>Theme: {theme}</p>
-      <button onClick={toggleTheme}>Toggle Theme</button>
+      <button className="bg-fuchsia-700 p-3 rounded-lg text-white cursor-pointer hover:bg-fuchsia-600 transition-all duration-100" onClick={toggleTheme}>Toggle Theme</button>
       <Counter />
     </div>
   );
